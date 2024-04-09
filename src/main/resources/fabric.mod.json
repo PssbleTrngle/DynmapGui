@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "adding server-side guis for dynmap",
+  "authors": ["${mod_author}"],
+  "contact": {
+    "sources": "https://github.com/${repository}",
+    "issues": "https://github.com/${repository}/issues"
+  },
+  "license": "CC0-1.0",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "com.possible_triangle.dynmapgui.DynmapGuiMod"
+      }
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.7",
+    "fabric": "*",
+    "minecraft": "~1.20",
+    "java": ">=17",
+    "fabric-language-kotlin": "*"
+  },
+  "suggests": {}
+}
