@@ -1,15 +1,12 @@
 package com.possible_triangle.dynmapgui.gui
 
-import com.possible_triangle.dynmapgui.extensions.addControl
+import com.possible_triangle.dynmapgui.CustomIcon
 import eu.pb4.sgui.api.gui.SimpleGui
-import net.minecraft.network.chat.Component
 import net.minecraft.server.level.ServerPlayer
 import net.minecraft.world.inventory.MenuType
-import net.minecraft.world.item.Items
 
 abstract class ConfirmGui(
-    player: ServerPlayer,
-    title: String,
+    player: ServerPlayer
 ) :
     SimpleGui(MenuType.GENERIC_9x3, player, false) {
 
@@ -17,18 +14,16 @@ abstract class ConfirmGui(
 
     open fun cancel() {}
 
-    init {
-        this.title = Component.literal(title)
-
-        addControl(width + 2, Items.GREEN_WOOL, "Confirm") {
+    override fun onOpen() {
+        setSlot(width + 2, CustomIcon.CONFIRM.guiElement {
             submit()
             close()
-        }
+        })
 
-        addControl(width * 2 - 3, Items.RED_WOOL, "Cancel") {
+        setSlot(width * 2 - 3, CustomIcon.CANCEL.guiElement {
             cancel()
             close()
-        }
+        })
     }
 
 }

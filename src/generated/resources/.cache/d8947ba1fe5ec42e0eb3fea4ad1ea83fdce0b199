@@ -1,0 +1,21 @@
+// 1.20.1	2024-04-10T14:07:38.4140155	Dynmap GUI/Model Definitions
+4119fbcbce867ad69f8a4cb2a2fa31b5bca00779 assets\dynmap\models\item\icon\change_dimension.json
+6b3ed472c389cfb094618974d5c1a9e2c26449c2 assets\dynmap\models\item\icon\cancel.json
+11a8e33a14a6fff174696871f02d5aec3205c52c assets\minecraft\models\item\arrow.json
+b34e138957f242ecaccd7792315c39c92c65fa8f assets\dynmap\models\item\icon\delete.json
+1b9e88bdd9c8494acfea08061372c818729b7d56 assets\dynmap\models\item\icon\create.json
+50c5245213bc89daa91c8ea036f9d812de981ff1 assets\dynmap\models\item\icon\previous.json
+1af85a507da6bbc903407b6eabc3471365d607a6 assets\minecraft\models\item\piston.json
+951d3eae575c5342b78e2b8ecc062b77b57f405e assets\dynmap\models\item\icon\teleport.json
+5c17ebfd341c7c6babc4e73b7918373371d894f6 assets\dynmap\models\item\icon\move_here.json
+b33fc1b7e1991cfb5d5390dab388af36ff78576f assets\dynmap\models\item\icon\next.json
+3c5059a24d40d1fa5554709021fd3b7aefc23074 assets\dynmap\models\item\icon\change_icon.json
+993a81c0ebfad9ed21847ef39f22dcc4d61d513a assets\dynmap\models\item\icon\rename.json
+350a81dc187409f35297965b70c6024203cf8b77 assets\minecraft\models\item\red_wool.json
+a9e5d2fb01f23efd409c95ec73d1767c9b95ca71 assets\minecraft\models\item\globe_banner_pattern.json
+d12905d49c4aedcf032644a9fe9104c35a8d49ae assets\minecraft\models\item\writable_book.json
+6dabf3d036f5f370c4e2e653aac1bc4e832d1981 assets\dynmap\models\item\icon\confirm.json
+3b75c5413875ddcbb6afcabb0fa28ea2c9b2121f assets\minecraft\models\item\end_portal_frame.json
+79634b6fa0e4cbd3f7425cd7b24f50e1cf4b5f83 assets\minecraft\models\item\ender_pearl.json
+5a80e0511d6b73f11c44480ea8a2f400f5dde59a assets\minecraft\models\item\green_wool.json
+1a5f0a3a18831a3b50a7ae759b84da2170c9240b assets\dynmap\models\item\icon\back.json

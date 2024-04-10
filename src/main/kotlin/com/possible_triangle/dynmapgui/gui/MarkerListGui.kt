@@ -1,61 +1,66 @@
 package com.possible_triangle.dynmapgui.gui
 
+import com.possible_triangle.dynmapgui.CustomIcon
+import com.possible_triangle.dynmapgui.DynmapGuiMod
 import com.possible_triangle.dynmapgui.DynmapGuiMod.DYNMAP_API
-import com.possible_triangle.dynmapgui.extensions.addControl
+import com.possible_triangle.dynmapgui.DynmapGuiMod.MAP_MANAGER
+import com.possible_triangle.dynmapgui.extensions.dynmapName
 import com.possible_triangle.dynmapgui.extensions.guiElement
-import eu.pb4.sgui.api.gui.SimpleGui
-import net.minecraft.network.chat.Component
+import com.possible_triangle.dynmapgui.extensions.hasDynmapPermission
+import eu.pb4.sgui.api.elements.GuiElement
 import net.minecraft.server.level.ServerPlayer
 import net.minecraft.world.inventory.MenuType
-import net.minecraft.world.item.Items
 import net.minecraft.world.level.Level
-import org.dynmap.fabric_1_20.FabricWorld
 
 class MarkerListGui(
     player: ServerPlayer,
     private var selectedLevel: Level = player.level(),
     private var selectedSet: String? = null,
 ) :
-    SimpleGui(MenuType.GENERIC_9x4, player, false) {
+    PaginatedGui(MenuType.GENERIC_9x4, player, false) {
 
     companion object {
         fun open(player: ServerPlayer) {
-            MarkerListGui(player).apply {
-                update()
-                open()
-            }
+            MarkerListGui(player).open()
         }
     }
 
-    fun update() {
-        title = Component.literal("Markers")
-
-        addControl(4, Items.END_PORTAL_FRAME, "Change Dimension") {
-            selectedLevel = player.server.allLevels.toList().let { list ->
-                list[(list.indexOf(selectedLevel) + 1) % list.size]
-            }
-            update()
-        }
-
-        addControl(8, Items.WRITABLE_BOOK, "Create") {
-            CreateMarkerGui.open(player)
-        }
-
-        val selectedLevelName = FabricWorld.getWorldName(null, selectedLevel)
-
+    override fun getEntries(): List<GuiElement> {
         val sets = selectedSet
             ?.let { listOf(DYNMAP_API.markerAPI.getMarkerSet(it)) }
             ?: DYNMAP_API.markerAPI.markerSets
 
         val markers = sets.flatMap { it.markers }
 
-        markers
-            .filter { selectedLevelName == it.world }
-            .forEachIndexed { i, marker ->
-                setSlot(width + i, marker.guiElement().setCallback { _, _, _ ->
+        return markers
+            .filter { selectedLevel.dynmapName == it.world }
+            .map { marker ->
+                marker.guiElement(player).setCallback { _, _, _ ->
                     MarkerGui.open(player, marker)
-                })
+                }.build()
             }
+    }
+
+    override fun update() {
+        super.update()
+
+        title = DynmapGuiMod.translation("title.markers")
+
+        setSlot(4, CustomIcon.CHANGE_DIMENSION.guiElement {
+            val markerLevels = MAP_MANAGER.getWorlds()
+                .filter { !it.isProtected || player.hasDynmapPermission("world.${it.name}") }
+                .map { it.name }
+
+            val levels = player.server.allLevels.filter { markerLevels.contains(it.dynmapName) }
+            selectedLevel = levels[(levels.indexOf(selectedLevel) + 1) % levels.size]
+            update()
+        })
+
+        if (player.hasDynmapPermission("marker.add")) {
+            setSlot(8, CustomIcon.CREATE.guiElement {
+                CreateMarkerGui.open(player)
+            })
+        }
     }
 
 }

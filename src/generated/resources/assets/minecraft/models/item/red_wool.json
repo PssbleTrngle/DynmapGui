@@ -1,0 +1,17 @@
+{
+  "parent": "minecraft:block/red_wool",
+  "overrides": [
+    {
+      "model": "dynmap:item/icon/cancel",
+      "predicate": {
+        "custom_model_data": 1203481
+      }
+    },
+    {
+      "model": "dynmap:item/icon/delete",
+      "predicate": {
+        "custom_model_data": 1203481
+      }
+    }
+  ]
+}

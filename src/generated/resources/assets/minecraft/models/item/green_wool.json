@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/green_wool",
+  "overrides": [
+    {
+      "model": "dynmap:item/icon/confirm",
+      "predicate": {
+        "custom_model_data": 1203481
+      }
+    }
+  ]
+}

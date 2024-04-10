@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/piston_inventory",
+  "overrides": [
+    {
+      "model": "dynmap:item/icon/move_here",
+      "predicate": {
+        "custom_model_data": 1203481
+      }
+    }
+  ]
+}

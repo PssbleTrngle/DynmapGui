@@ -7,22 +7,22 @@ import com.possible_triangle.dynmapgui.extensions.displayItem
 import eu.pb4.sgui.api.elements.GuiElement
 import net.minecraft.server.level.ServerPlayer
 import net.minecraft.world.inventory.MenuType
-import org.dynmap.markers.MarkerIcon
+import org.dynmap.markers.MarkerSet
 
-abstract class IconSelectGui(player: ServerPlayer) : PaginatedGui(MenuType.GENERIC_9x5, player, false) {
+abstract class SetSelectGui(player: ServerPlayer) : PaginatedGui(MenuType.GENERIC_9x5, player, false) {
 
-    abstract fun select(icon: MarkerIcon)
+    abstract fun select(set: MarkerSet)
 
     override fun update() {
         super.update()
 
-        title = DynmapGuiMod.translation("title.select_icon")
+        title = DynmapGuiMod.translation("title.select_set")
     }
 
     override fun getEntries(): List<GuiElement> {
-        return DYNMAP_API.markerAPI.markerIcons.map { icon ->
-            createControl(icon.displayItem(), icon.markerIconLabel) {
-                select(icon)
+        return DYNMAP_API.markerAPI.markerSets.map { set ->
+            createControl(set.defaultMarkerIcon.displayItem(), set.markerSetLabel) {
+                select(set)
                 close()
             }.build()
         }

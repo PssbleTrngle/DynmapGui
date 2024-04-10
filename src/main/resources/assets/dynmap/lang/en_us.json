@@ -1,0 +1,21 @@
+{
+  "dynmapgui.control.previous": "Previous page",
+  "dynmapgui.control.next": "Next page",
+  "dynmapgui.control.back": "Back",
+  "dynmapgui.control.confirm": "Confirm",
+  "dynmapgui.control.cancel": "Cancel",
+  "dynmapgui.control.delete": "Delete",
+  "dynmapgui.control.change_icon": "Change icon",
+  "dynmapgui.control.rename": "Rename",
+  "dynmapgui.control.create": "Create",
+  "dynmapgui.control.move": "Move here",
+  "dynmapgui.control.teleport": "Teleport to marker",
+  "dynmapgui.control.change_dimension": "Switch dimension",
+  "dynmapgui.title.markers": "Markers",
+  "dynmapgui.title.rename": "Renaming %s",
+  "dynmapgui.title.delete": "Delete %s?",
+  "dynmapgui.title.select_set": "Select set",
+  "dynmapgui.title.select_icon": "Select icon",
+  "dynmapgui.title.enter_name": "Enter Name:",
+  "dynmapgui.blocks_away": "%d blocks away"
+}
