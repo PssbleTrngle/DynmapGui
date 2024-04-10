@@ -11,6 +11,7 @@ import net.minecraft.world.item.Items
 import net.minecraft.world.level.ItemLike
 import org.dynmap.markers.Marker
 import org.dynmap.markers.MarkerIcon
+import kotlin.math.sqrt
 
 private val BUILTIN_MARKERS = mapOf(
     "whiteflag" to Items.WHITE_BANNER,
@@ -59,7 +60,7 @@ fun Marker.guiElement(player: ServerPlayer? = null): GuiElementBuilder {
             listOfNotNull(
                 Component.literal(markerID).withStyle { it.withItalic(true) }.takeIf { withDebug },
                 Component.literal("[${x.toInt()} / ${y.toInt()} / ${z.toInt()}]"),
-                player?.let { DynmapGuiMod.translation("blocks_away", it.distanceToSqr(x, y, z)) },
+                player?.let { DynmapGuiMod.translation("blocks_away", sqrt(it.distanceToSqr(x, y, z))) },
                 Component.translatable(markerSet.markerSetLabel),
             )
         )
