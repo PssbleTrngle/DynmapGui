@@ -46,7 +46,7 @@ private val BUILTIN_MARKERS = mapOf(
 )
 
 fun MarkerIcon.displayItem(): ItemLike {
-    return BuiltInRegistries.ITEM.get(ResourceLocation(markerIconID))
+    return BuiltInRegistries.ITEM.get(ResourceLocation.parse(markerIconID))
         .takeUnless { it == Items.AIR }
         ?: BUILTIN_MARKERS[markerIconID]
         ?: Items.WHITE_BANNER
@@ -64,5 +64,5 @@ fun Marker.guiElement(player: ServerPlayer? = null): GuiElementBuilder {
                 Component.translatable(markerSet.markerSetLabel),
             )
         )
-        .hideFlags()
+        .hideDefaultTooltip()
 }

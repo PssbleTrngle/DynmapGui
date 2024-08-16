@@ -3,7 +3,7 @@ val dynmap_version: String by extra
 val porting_lib_version: String by extra
 
 plugins {
-    id("com.possible-triangle.gradle") version ("0.1.5")
+    id("com.possible-triangle.gradle") version ("0.2.2")
 }
 
 withKotlin()
@@ -44,5 +44,5 @@ enablePublishing {
 
 uploadToCurseforge()
 uploadToModrinth {
-
+    syncBodyFromReadme()
 }

@@ -31,7 +31,7 @@ class IconGen(output: FabricDataOutput, private val existingFiles: ExistingFileH
             val json = GSON.fromJson(existing.openAsReader(), JsonObject::class.java)
 
             val models = icons.associateWith {
-                ResourceLocation("dynmap", "item/icon/${it.name}")
+                ResourceLocation.fromNamespaceAndPath("dynmap", "item/icon/${it.name}")
             }
 
             models.forEach { (_, key) ->
