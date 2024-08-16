@@ -43,4 +43,6 @@ enablePublishing {
 }
 
 uploadToCurseforge()
-uploadToModrinth()
+uploadToModrinth {
+
+}
