@@ -8,7 +8,7 @@
   "dynmapgui.control.change_icon": "Change icon",
   "dynmapgui.control.rename": "Rename",
   "dynmapgui.control.create": "Create",
-  "dynmapgui.control.move": "Move here",
+  "dynmapgui.control.move_here": "Move here",
   "dynmapgui.control.teleport": "Teleport to marker",
   "dynmapgui.control.change_dimension": "Switch dimension",
   "dynmapgui.title.markers": "Markers",
