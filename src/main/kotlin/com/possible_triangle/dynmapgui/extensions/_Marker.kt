@@ -60,7 +60,7 @@ fun Marker.guiElement(player: ServerPlayer? = null): GuiElementBuilder {
             listOfNotNull(
                 Component.literal(markerID).withStyle { it.withItalic(true) }.takeIf { withDebug },
                 Component.literal("[${x.toInt()} / ${y.toInt()} / ${z.toInt()}]"),
-                player?.let { DynmapGuiMod.translation("blocks_away", sqrt(it.distanceToSqr(x, y, z))) },
+                player?.let { DynmapGuiMod.translation("blocks_away", "%.2f".format(sqrt(it.distanceToSqr(x, y, z)))) },
                 Component.translatable(markerSet.markerSetLabel),
             )
         )
