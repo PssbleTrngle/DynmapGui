@@ -21,7 +21,7 @@
     "fabric-datagen": [
       {
         "adapter": "kotlin",
-        "value": "com.possible_triangle.dynmapgui.DynmapGuiMod"
+        "value": "com.possible_triangle.dynmapgui.datagen.DynmapGuiDatagen"
       }
     ]
   },

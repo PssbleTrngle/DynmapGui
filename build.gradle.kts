@@ -29,12 +29,12 @@ repositories {
 
 fabric {
     includesMod("eu.pb4:sgui:${sgui_version}")
-    includesMod("io.github.fabricators_of_create.Porting-Lib:data:${porting_lib_version}")
 
     dataGen()
 }
 
 dependencies {
+    modImplementation("io.github.fabricators_of_create.Porting-Lib:data:${porting_lib_version}")
     modImplementation("maven.modrinth:dynmap:${dynmap_version}")
 }
 
